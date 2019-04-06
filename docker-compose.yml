@@ -1,0 +1,14 @@
+version: '3'
+services:
+  epitech-assistant:
+    build:
+      context: .
+    image: epitech-assistant:webhook
+    restart: always
+    container_name: epitech-assistant-webhook
+    ports:
+    - ${PORT}:${PORT}
+    environment:
+    - PORT=${PORT}
+    - INTRA_URL=${INTRA_URL}
+    - EMMA_URL=${EMMA_URL}

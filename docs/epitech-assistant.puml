@@ -1,0 +1,64 @@
+@startuml
+
+class DialogflowAssistant {
+    WebhookClient agent
+    User user
+
+    sendRequest()
+    handleRequestUser()
+    handleRequestGuest()
+    welcomeUser()
+    welcomeGuest()
+    intentGetXXXX()
+
+}
+
+class User {
+    string userId
+    string autoLogin
+    string email
+
+    existe()
+    isConnected()
+    getGPA()
+    getCredits()
+    getSpices()
+    getConsumedSpices()
+    getCycle()
+    getSemester()
+    getPromotion()
+    getLastMark()
+    getMarks()
+    getBestBinome()
+    getBinomes()
+    getName()
+    getNameFromLogin()
+}
+
+class Intra {
+    string autoLogin
+    string email
+
+    get()
+    getMarks()
+    getBinomes()
+    getLogs()
+    getNotificationsAlert()
+    getNotificationsMessage()
+    getNotificationsComing()
+    getNotificationsMissed()
+    getSchedule()
+}
+
+class WebhookClient {
+    [Google fulfillement]
+}
+
+
+
+User <|-- Intra
+DialogflowAssistant <|-- User
+DialogflowAssistant <|-- WebhookClient
+
+
+@enduml

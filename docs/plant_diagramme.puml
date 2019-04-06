@@ -1,0 +1,15 @@
+@startuml
+DialogFlow -> EpitechAssistant: Send user's request
+EpitechAssistant --> Firebase: Get user's informations
+Firebase --> EpitechAssistant: Return user's informations
+EpitechAssistant --> EpitechAssistant: Authentification
+
+EpitechAssistant -> Intranet: Fetch data from Intranet
+Intranet --> EpitechAssistant: Return data
+
+EpitechAssistant --> EpitechAssistant: Create template response
+
+EpitechAssistant --> Firebase: Log resquest and response
+
+EpitechAssistant --> DialogFlow: Return formuled response
+@enduml

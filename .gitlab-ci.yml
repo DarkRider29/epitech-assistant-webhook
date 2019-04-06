@@ -1,0 +1,52 @@
+# Docker image
+#image: node:alpine
+# Stage you want
+stages:
+- build
+- test
+- deploy
+cache:
+  untracked: true
+  paths:
+  - node_modules/
+# Build / Test / Deploy
+S-Steve:
+  stage: build
+  before_script:
+  - echo "[S-STEVE] Starting Steve's step"
+  script:
+  - docker-compose build
+  after_script:
+  - echo "[S-STEVE] Ending Steve's step"
+  tags:
+  - enoviah
+  - bash
+S-Bill:
+  stage: test
+  before_script:
+  - echo "[S-BILL] Starting Steve's step"
+  script:
+  - echo "No tests sry"
+  after_script:
+  - echo "[S-BILL] Ending Steve's step"
+  only:
+  - master
+  tags:
+  - enoviah
+  - bash
+S-Elon:
+  stage: deploy
+  before_script:
+  - echo "[S-ELON] Starting Steve's step"
+  script:
+  - docker-compose up -d
+  environment:
+    name: Production
+    url: https://assistant.detroyes.fr
+  after_script:
+  - echo "[S-ELON] Ending Steve's step"
+  only:
+  - master
+  tags:
+  - enoviah
+  - bash
